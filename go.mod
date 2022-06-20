@@ -1,5 +1,6 @@
 module github.com/dileep9490/todoapp/Backend
 
+// +heroku goVersion go1.18
 go 1.18
 
 require (
