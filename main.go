@@ -14,7 +14,7 @@ func main() {
 	app := fiber.New()
 	port := config.Config("PORT")
 	app.Post("/auth/signup", handlers.SignUP)
-	app.Get("/auth/login", handlers.Login)
+	app.Post("/auth/login", handlers.Login)
 	app.Post("/todo/create", handlers.CreateTodo)
 	app.Get("/todo/all/:user_uid", handlers.GetAllTodos)
 	app.Get("/todo/:id", handlers.GetTodoById)
