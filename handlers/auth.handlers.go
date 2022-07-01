@@ -62,5 +62,7 @@ func Login(c *fiber.Ctx) error {
 			"error": "credentials don't match",
 		})
 	}
-	return c.Status(http.StatusOK).JSON(user.ID)
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"apiKey": user.ID,
+	})
 }
