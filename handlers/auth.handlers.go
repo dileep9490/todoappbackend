@@ -19,7 +19,7 @@ func SignUP(c *fiber.Ctx) error {
 
 	if err := c.BodyParser(data); err != nil {
 		c.JSON(fiber.Map{
-			"error": err,
+			"error": "Internal Server Error",
 		})
 	}
 
@@ -37,7 +37,7 @@ func SignUP(c *fiber.Ctx) error {
 	user.ID = uuid.New()
 	if err := db.Create(&user).Error; err != nil {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
-			"error": err,
+			"error": "Email already Exist",
 		})
 	}
 
@@ -51,7 +51,7 @@ func Login(c *fiber.Ctx) error {
 
 	if err := c.BodyParser(data); err != nil {
 		return c.JSON(fiber.Map{
-			"error": err,
+			"error": "Internal Server Error",
 		})
 	}
 
